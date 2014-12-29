@@ -10,9 +10,9 @@ class EazyMoney_med{
 	public static void main(String[] args) {
 		final Run r = new Run();
 
-		SwingUtilities.invokeLater(new Runnable()) {
+		SwingUtilities.invokeLater(new Runnable(){
             @Override
-            public void run() {
+            public void run(){
                 new Gui(r);
             }
         });
@@ -162,7 +162,7 @@ class Run{
 		info.put(name, arList);
 	}
 
-	private void readFile(){
+	public void readFile(){
 		String searchphrase;
 		String name;
 		boolean exists;
@@ -234,10 +234,11 @@ class Run{
 
 					//This post is new
 					}else{
-
+						
 						//Deposited to account
 						if(!in[3].equals("")){
 							String snd = "-"+in[3];
+
 							g.giveName(in[1], snd, in[0]);
 
 						//Withdrawn from account
