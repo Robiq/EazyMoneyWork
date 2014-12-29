@@ -23,6 +23,7 @@ class Gui implements ActionListener{
 
 	Gui(Run run){
 		r=run;
+		r.addGui(this);
 		choseFileRead();
 
 	}
@@ -85,7 +86,6 @@ class Gui implements ActionListener{
 
 		JLabel nameL = new JLabel("Give this post a name:");
 		JLabel searchL = new JLabel("What do you want the searchterm to be?");
-		System.out.println("This: " + s + " Amount: " + amount + " Date" + date);
 
 		wind2 = new JFrame("EazyMoney");
 		wind2.setLayout(new BorderLayout());

@@ -234,7 +234,9 @@ class Run{
 
 					//This post is new
 					}else{
-						
+
+						//Hvordan lage "lock", så den bare kjører en om gangen?
+
 						//Deposited to account
 						if(!in[3].equals("")){
 							String snd = "-"+in[3];
