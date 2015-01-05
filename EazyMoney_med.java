@@ -20,7 +20,6 @@ class EazyMoney_med{
 }
 
 class Run{
-	
 
 	File file;
 	//Name of post, total activity 
@@ -235,17 +234,107 @@ class Run{
 					//This post is new
 					}else{
 
-						//Hvordan lage "lock", så den bare kjører en om gangen?
+						
+						String searchName, searchph;
 
+						String[] options = {"OK"};
+						JPanel panel;
+						JLabel lbl, lbl2;
+						JTextField txt;
+						
+						
 						//Deposited to account
 						if(!in[3].equals("")){
 							String snd = "-"+in[3];
+							while(true){
+								panel = new JPanel(new BorderLayout());
+								lbl = new JLabel("What do you want to name this post?");
+								lbl2 = new JLabel(in[1]);
+								txt = new JTextField(20);
+								panel.add(lbl, BorderLayout.NORTH);
+								panel.add(lbl2, BorderLayout.CENTER);
+								panel.add(txt, BorderLayout.SOUTH);
+								int selectedOption = JOptionPane.showOptionDialog(null, panel, "EazyMoney", JOptionPane.NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options , options[0]);
 
-							g.giveName(in[1], snd, in[0]);
+								if(selectedOption == 0)
+								{
+								    searchName = txt.getText();
+								    if(!searchName.equals(""))	break;
+								}
+							}
+
+
+							int press = JOptionPane.showConfirmDialog(null, "Do you want to use the name " + searchName +" as searchphrase?\nSearchphrase can not contain ÆØÅ!", "EazyMoney", JOptionPane.YES_NO_OPTION);
+
+							if(press == JOptionPane.YES_OPTION){
+								searchph=searchName.toLowerCase();
+							} else{
+
+								while(true){
+									panel = new JPanel(new BorderLayout());
+									lbl = new JLabel("Post: "+ in[1] +" - Name: " + searchName);
+									lbl2 = new JLabel("What do you want the searchterm for this post to be?");
+									txt = new JTextField(20);
+									panel.add(lbl, BorderLayout.NORTH);
+									panel.add(lbl2, BorderLayout.CENTER);
+									panel.add(txt, BorderLayout.SOUTH);
+									int selectedOption = JOptionPane.showOptionDialog(null, panel, "EazyMoney", JOptionPane.NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options , options[0]);
+
+									if(selectedOption == 0)
+									{
+									    searchph = txt.getText().toLowerCase();
+										if(!searchph.equals(""))	break;
+									}
+								}
+							}
+
+							createNew(searchName, searchph, snd, in[0]);
 
 						//Withdrawn from account
 						}else{
-							g.giveName(in[1], in[4], in[0]);
+							
+							while(true){
+								panel = new JPanel(new BorderLayout());
+								lbl = new JLabel("What do you want to name this post?");
+								lbl2 = new JLabel(in[1]);
+								txt = new JTextField(20);
+								panel.add(lbl, BorderLayout.NORTH);
+								panel.add(lbl2, BorderLayout.CENTER);
+								panel.add(txt, BorderLayout.SOUTH);
+								int selectedOption = JOptionPane.showOptionDialog(null, panel, "EazyMoney", JOptionPane.NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options , options[0]);
+
+								if(selectedOption == 0)
+								{
+								    searchName = txt.getText();
+								    if(!searchName.equals(""))	break;
+								}
+							}
+
+							int press = JOptionPane.showConfirmDialog(null, "Do you want to use the name " + searchName +" as searchphrase?\nSearchphrase can not contain ÆØÅ!", "EazyMoney", JOptionPane.YES_NO_OPTION);
+
+							if(press == JOptionPane.YES_OPTION){
+								searchph=searchName.toLowerCase();
+							} else{
+
+								while(true){
+									panel = new JPanel(new BorderLayout());
+									lbl = new JLabel("Post: "+ in[1] +" - Name: " + searchName);
+									lbl2 = new JLabel("What do you want the searchterm for this post to be?");
+									txt = new JTextField(20);
+									panel.add(lbl, BorderLayout.NORTH);
+									panel.add(lbl2, BorderLayout.CENTER);
+									panel.add(txt, BorderLayout.SOUTH);
+									int selectedOption = JOptionPane.showOptionDialog(null, panel, "EazyMoney", JOptionPane.NO_OPTION, JOptionPane.QUESTION_MESSAGE, null, options , options[0]);
+
+									if(selectedOption == 0)
+									{
+									    searchph = txt.getText().toLowerCase();
+										if(!searchph.equals(""))	break;
+									}
+								}
+							}
+
+							createNew(searchName, searchph, in[4], in[0]);
 						}
 					}
 				}
@@ -273,19 +362,23 @@ class Run{
 
 				for(String s : a){
 					totPrint=(a+"\n").replaceAll("[\\[\\]]", "").replaceAll(", ", "\n");
-					String[] cnt = new String [2];
-					cnt=s.split(":");
-					tot+=Double.parseDouble(cnt[1]);
+					if(!s.equals("")){
+						String[] cnt = new String [2];
+						cnt=s.split(":");
+						tot+=Double.parseDouble(cnt[1]);
+					}
 				}
-				totAll += tot;
-				w.write("Name of post: " +r.getKey() + ".\nTotal funds transfered by post: " + tot);
-				w.newLine();
-				w.newLine();
-				w.write(totPrint);
-				w.newLine();
-				w.write("------------------------------");
-				w.newLine();
-				w.newLine();
+				if(!totPrint.equals("")){
+					totAll += tot;
+					w.write("Name of post: " +r.getKey() + ".\nTotal funds transfered by post: " + tot);
+					w.newLine();
+					w.newLine();
+					w.write(totPrint);
+					w.newLine();
+					w.write("------------------------------");
+					w.newLine();
+					w.newLine();
+				}
 			}
 			w.write("Total of all transactions: " + (int)totAll);
 			w.newLine();

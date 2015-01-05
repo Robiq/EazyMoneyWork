@@ -79,57 +79,10 @@ class Gui implements ActionListener{
 		wind.setVisible(true);
 	}
 
-	public void giveName(String s, String amount, String date){
-		
-		this.amount=amount;
-		this.date=date;
-
-		JLabel nameL = new JLabel("Give this post a name:");
-		JLabel searchL = new JLabel("What do you want the searchterm to be?");
-
-		wind2 = new JFrame("EazyMoney");
-		wind2.setLayout(new BorderLayout());
-
-		JPanel all = new JPanel();
-		all.setLayout(new GridLayout(2,2));
-		
-
-		searchtermF = new JTextField(30);
-		nameF=new JTextField(30);
-		
-		all.add(nameL);
-		all.add(nameF);
-		all.add(searchL);
-		all.add(searchtermF);
-
-		done = new JButton("Press when you have filled in the information!");
-		done.addActionListener(this);
-
-		String prn = "The post in question: " + s;
-		JLabel header = new JLabel(prn);
-
-		wind2.add(header, BorderLayout.NORTH);
-		all.setVisible(true);
-		wind2.add(all, BorderLayout.CENTER);
-		wind2.add(done, BorderLayout.SOUTH);
-
-		wind2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		wind2.pack();
-		wind2.setLocationRelativeTo(null);
-		wind2.validate();
-		wind2.setVisible(true);
-	}
-
 	public void actionPerformed(ActionEvent e){
-		
-		if(e.getSource() == done){
 
-			wind2.setVisible(false);
-			name =nameF.getText().toLowerCase();
-			searchterm=searchtermF.getText().toLowerCase();
-			r.createNew(name, searchterm, amount, date);
 
-		}else if(e.getSource() == open){
+		if(e.getSource() == open){
 			//Lar deg velge en fil, så lenge filen er gyldig.
 			int returnVal = fileC.showOpenDialog(wind);
 

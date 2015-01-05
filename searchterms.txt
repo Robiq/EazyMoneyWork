@@ -1,0 +1,45 @@
+universitet:UiO
+rimi:Rimi
+samlerhuset:Samlerhuset
+bislett kebab:Bislett Kebab
+nsb:NSB
+soliis:Soliis
+kino:Kino
+kan fris:Kan Frisør
+espen mathy:Overføring Espen Mathy
+riot:Riot
+informatikkkafe:IFI-kafen
+telenor:Telenor
+cubus:Cubus
+roar lunde fast oppdrag:Husleie
+oslo bowling:Oslo Bowling
+gatsby:Gatsby bar
+kiwi:Kiwi
+h&m:H&M
+kontoregulering:Overføring egne kontoer
+meny:Meny
+ruter:Ruter
+tasty thai:Tasty Thai
+clas ohlson:Clas Ohlson
+mester gr:Mester Grønn
+juvelen:Juvelen
+flytoget:Flytoget
+madelen bj:Madelen bjørnvold
+rema:Rema
+nodee:Nodee Restaurant
+morris:Morris
+mm trend as:Pizza Ricetta
+vinmonopolet:Vinmonopolet
+statens l:Stipend
+paypal:Paypal
+2 star:2 star
+zazzle:Zazzle
+sportshuset:Sportshuset
+joker:Joker
+jernia:Jernia
+dressmann:Dressmann
+jack & jones:Jack and Jones
+east kitchen:East Kitchen
+nille:Nille
+fru helgesens ga:Yallabutikk
+kicks:Kicks
